@@ -5,13 +5,13 @@ using UnityEngine;
 public class DustTrail : MonoBehaviour
 {
 
-    [SerializeField] ParticleSystem dustTrail;
+    [SerializeField] ParticleSystem dustParticles;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
-            dustTrail.Play();
+            dustParticles.Play();
         }
     }
 
@@ -19,7 +19,7 @@ public class DustTrail : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            dustTrail.Stop();
+            dustParticles.Stop();
         }
     }
 }
