@@ -12,11 +12,12 @@ public class CrashDetector : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        FindObjectOfType<PlayerController>().DisableControls();
         crashParticle.Play();
         GetComponent<AudioSource>().PlayOneShot(crashSFX);
         Invoke("ReloadScene", delayFinish);
     }
-    void ReloadScene()
+    public void ReloadScene()
     {
         SceneManager.LoadScene(0);
 
